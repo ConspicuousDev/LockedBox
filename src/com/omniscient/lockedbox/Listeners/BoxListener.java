@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BoxListener implements Listener {
-    @EventHandler(priority = EventPriority.HIGHEST)
+    @EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
     public void onBlockInteract(PlayerInteractEvent e){
         Player p = e.getPlayer();
         Block b = e.getClickedBlock();
