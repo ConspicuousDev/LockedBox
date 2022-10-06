@@ -7,6 +7,7 @@ import com.omniscient.lockedbox.Commands.LBGiveKey;
 import com.omniscient.lockedbox.Listeners.BoxListener;
 import com.omniscient.lockedbox.Listeners.InventoryListener;
 import com.omniscient.lockedbox.Listeners.ChatListener;
+import com.omniscient.lockedbox.Utils.DisableThread;
 import com.omniscient.lockedbox.Utils.Methods;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;

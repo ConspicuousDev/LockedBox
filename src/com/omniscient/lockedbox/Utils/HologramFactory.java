@@ -12,6 +12,11 @@ public class HologramFactory {
         armorStand.setMarker(true);
         armorStand.setCustomNameVisible(true);
         armorStand.setCustomName(Methods.color(string));
+        armorStand.getNearbyEntities(.1, .1 ,.1).forEach(entity -> {
+            if(!(entity instanceof ArmorStand)) return;
+            if(!(entity.getCustomName().equals(armorStand.getCustomName()))) return;
+            entity.remove();
+        });
         return armorStand;
     }
 }
