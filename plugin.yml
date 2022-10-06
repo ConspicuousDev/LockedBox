@@ -1,0 +1,13 @@
+name: LockedBox
+main: com.omniscient.lockedbox.LockedBox
+version: 1.0
+author: Omniscient
+commands:
+  lbadmin:
+    usage: /lbadmin
+    description: Open the LockedBox admin menu
+    permission: lockedbox.commands.admin
+  lbgivekey:
+    usage: /lbgivekey <player> <amount> <tier> <box name>
+    description: Gives <player> <amount> key(s) to open <box name>
+    permission: lockedbox.commands.key
