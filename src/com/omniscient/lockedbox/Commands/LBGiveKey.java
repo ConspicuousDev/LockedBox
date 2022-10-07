@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 public class LBGiveKey implements TabExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        if(strings.length < 3){
+        if(strings.length < 4){
             commandSender.sendMessage(Methods.color("&cPlease use: "+command.getUsage()));
             return true;
         }
