@@ -1,24 +1,23 @@
 package com.omniscient.lockedbox;
 
 import com.omniscient.lockedbox.Box.Box;
-import com.omniscient.lockedbox.Box.Skin;
 import com.omniscient.lockedbox.Commands.LBAdmin;
 import com.omniscient.lockedbox.Commands.LBGiveKey;
 import com.omniscient.lockedbox.Listeners.BoxListener;
-import com.omniscient.lockedbox.Listeners.InventoryListener;
 import com.omniscient.lockedbox.Listeners.ChatListener;
-import com.omniscient.lockedbox.Utils.DisableThread;
+import com.omniscient.lockedbox.Listeners.InventoryListener;
 import com.omniscient.lockedbox.Utils.Methods;
 import org.bukkit.Bukkit;
-import org.bukkit.Location;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.io.*;
-import java.util.UUID;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class LockedBox extends JavaPlugin {
     public static LockedBox plugin;

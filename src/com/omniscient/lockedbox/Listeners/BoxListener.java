@@ -22,9 +22,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BoxListener implements Listener {
-    @EventHandler(priority = EventPriority.LOWEST, ignoreCancelled = true)
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onBlockInteract(PlayerInteractEvent e){
-        Player p = e.getPlayer();
+        Player player = e.getPlayer();
         Block b = e.getClickedBlock();
         if(b == null || b.getType() != Material.CHEST) return;
         Location location = b.getLocation();
@@ -32,27 +32,29 @@ public class BoxListener implements Listener {
         if(box == null) return;
         e.setCancelled(true);
         if(e.getAction() == Action.LEFT_CLICK_BLOCK) {
-            new LootViewer(p, box, false).open();
+            new LootViewer(player, box, false).open();
         }else if(e.getAction() == Action.RIGHT_CLICK_BLOCK){
-            if(p.getItemInHand() == null || p.getItemInHand().getType() == Material.AIR){
-                p.sendMessage(Methods.color("&cYou need a key for this."));
+            if(player.getItemInHand() == null || player.getItemInHand().getType() == Material.AIR){
+                player.sendMessage(Methods.color("&cYou need a key for this."));
                 return;
             }
-            if(!p.getItemInHand().hasItemMeta()){
-                p.sendMessage(Methods.color("&cYou need a key for this."));
+            if(!player.getItemInHand().hasItemMeta()){
+                player.sendMessage(Methods.color("&cYou need a key for this."));
                 return;
             }
             for(Tier tier : Tier.values()) {
                 ItemStack key = box.makeKey(tier, 1);
-                ItemStack hand = p.getItemInHand().clone();
+                ItemStack hand = player.getItemInHand().clone();
                 hand.setAmount(1);
                 if(hand.equals(key)){
                     new BoxRoll(e.getPlayer(), box, tier).open();
+                    ItemStack item = player.getItemInHand();
+                    if(item.getAmount() > 1) item.setAmount(item.getAmount()-1);
+                    else player.getInventory().setItemInHand(null);
                     return;
                 }
             }
-            p.sendMessage(Methods.color("&cYou need a key for this."));
-            return;
+            player.sendMessage(Methods.color("&cYou need a key for this."));
         }
     }
 }
