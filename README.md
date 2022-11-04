@@ -13,4 +13,4 @@ The setup of new crates, loot, and tiers can be done through the interactive con
     - Gives ``<player>`` ``<amount>`` ``<tier>`` key(s) to open ``<box name>``.
    
 ## Showcase
-Click [here](https://www.youtube.com/watch?v=HxRzClFCofs) for the showcase (v1.0).
+Click [here](https://www.youtube.com/watch?v=VIBUmiGC2cE) for the showcase (v1.2).
